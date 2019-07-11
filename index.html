@@ -9,23 +9,29 @@
 </head>
 <body>
     <p>hello world</p>
-    <input type="text"></input>
+    <input id="search" type="text"></input>
     <button id="submit">Submit</button>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
     
-    var search = ;
-    var queryURL = "https://www.googleapis.com/youtube/v3/search?part="+ search +"&key=AIzaSyA_kaHaStvMNysgbkURFT6wQ6-2kTqXv_c";
+
+    var search = "";
+    
+    
     
     $("button").on("click", function(){
+        search = $("#search").val().trim();
         getInfo();
     })
     
     function getInfo () {
+    var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&q=" + search + "&type=video&videoCategoryId=17&videoDefinition=any&key=AIzaSyA_kaHaStvMNysgbkURFT6wQ6-2kTqXv_c";
     $.ajax({
     url: queryURL,
     method: "GET"
     }).then(function(response) {
+    console.log("Search: " + search)
+    console.log("RESPONSE:")
     console.log(response) 
     })
     }
