@@ -11,6 +11,7 @@
     <p>hello world</p>
     <input id="search" type="text"></input>
     <button id="submit">Submit</button>
+    <div class="articles"></div>
     <div class="videos"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
@@ -39,6 +40,7 @@
             '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + vidId + '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
         )
     }
+    $(".articles").append('<iframe src="https://en.wikipedia.org/wiki/' + search + '?printable=yes" height="551" width="705"></iframe>')
     })
 });
     
