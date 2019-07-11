@@ -27,6 +27,9 @@
     </div>
     <div class="container">
         <div class="articles"></div>
+        <div class="fullwiki">
+            <input type="submit" id="close" value="Close">
+        </div>
         <div class="videos"></div>
         
     </div>
@@ -39,13 +42,13 @@
     
     var proxyurl = "https://cors-anywhere.herokuapp.com/";
     var search = "";
-    
+    $("#close").hide()
     $("#submit1").on("click", function(){
         search = $("#search").val().trim();
-        var picURL = proxyurl+ "https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=" + search + "&utf8=&format=json"
-
+        var wikiURL = proxyurl+ "https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=" + search + "&utf8=&format=json"
+        var wikiFrame = '<iframe class="wframe" src="https://en.wikipedia.org/wiki/' + search + '?printable=yes"></iframe>'
         $.ajax({
-    url: picURL,
+    url: wikiURL,
     method: "GET"
     }).then(function(response) {
         console.log("test: ")
@@ -56,9 +59,20 @@
         console.log(wikiSnip)
         newDiv.prepend(wikiSnip)
         $(".articles").append(newDiv);
+        $(".fullwiki").append(wikiFrame)
+        $(".fullwiki").hide()
     })
-    $(".articles").on("click", function(){
-        window.frames('<iframe src="https://en.wikipedia.org/wiki/' + search + '?printable=yes" height="551" width="705"></iframe>')
+    $(".articles").on("click", function(e){
+        e.preventDefault();
+        $(".fullwiki").toggle()
+        $(".articles").toggle()
+        $("#close").toggle()
+    })
+    $("#close").on("click", function(e){
+        e.preventDefault();
+        $(".fullwiki").toggle()
+        $(".articles").toggle()
+        $("#close").toggle()
     })
 
 })

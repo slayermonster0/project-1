@@ -11,3 +11,11 @@
     position: absolute;
     left: 50%;
 }
+
+.wframe {
+    height: 500px;
+    width: 100%;
+    max-width: 900;
+    /* height="551" width="705" */
+    position: absolute;
+}
