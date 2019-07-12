@@ -9,8 +9,7 @@
     <link rel="stylesheet" type="text/css" href="./assets/reset.css">
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <link href="https://fonts.googleapis.com/css?family=Monoton|Staatliches|Molengo|Baloo|Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Baloo|Indie+Flower|Molengo|Monoton|Righteous|Rubik+Mono+One|Staatliches&display=swap" rel="stylesheet">
     <link rel="icon" href=""> <!--Favicon needed-->
 </head>
 <body>
@@ -19,10 +18,10 @@
         <h1><span id="blood">Query</span>.<span id="hound">Search</span></h1>
         <input id="search" type="text" placeholder="Your search here..."></input>
         <input type="submit" id="submit" value="Search">
-        <div class="frontpage">
-            <h class="summaryT">Summary Title</h>
-            <p class="summaryD">Description here. Description here. Description here. Description here. Description here. Description here. </p>
-        </div>
+    </div>
+    <div class="frontpage">
+        <h class="summaryT">Summary Title</h>
+        <p class="summaryD">Description here. Description here. Description here. Description here. Description here. Description here. </p>
     </div>
     <div class="container">
         <div class="articles"></div>
@@ -33,72 +32,6 @@
         
     </div>
     </div>
-
-    
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script>
-    
-    var proxyurl = "https://cors-anywhere.herokuapp.com/";
-    var search = "";
-    $("#close").hide()
-    $("#submit").on("click", function(){
-        search = $("#search").val().trim();
-        var wikiURL = proxyurl+ "https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=" + search + "&utf8=&format=json"
-        var wikiFrame = '<iframe class="wframe" src="https://en.wikipedia.org/wiki/' + search + '?printable=yes"></iframe>'
-        $.ajax({
-    url: wikiURL,
-    method: "GET"
-    }).then(function(response) {
-        console.log("test: ")
-        console.log(response)
-        $(".wikiDesc").remove();
-        $(".fullwiki").empty();
-        var wikiSnip = response.query.search[0].snippet;
-        var newDiv = $("<div>")
-        newDiv.attr("class", "wikiDesc")
-        console.log(wikiSnip)
-        newDiv.prepend(wikiSnip)
-        $(".articles").append(newDiv);
-        $(".fullwiki").append(wikiFrame)
-        $(".fullwiki").attr("style", "display: none")
-    })
-        var queryURL = proxyurl+ "https://www.googleapis.com/youtube/v3/search?videoEmbeddable=true&part=snippet&order=relevance&q=" + search + "&type=video&videoDefinition=any&key=AIzaSyA_kaHaStvMNysgbkURFT6wQ6-2kTqXv_c";
-        console.log(queryURL)
-    $.ajax({
-    url: queryURL,
-    method: "GET"
-    }).then(function(response) {
-        $(".videos").empty()
-        console.log("Search: " + search)
-        console.log("RESPONSE:")
-        console.log(response)
-        for (var i = 0; i < response.items.length; i++) {
-        var vidId = response.items[i].id.videoId;
-        console.log("vidId: " + vidId)
-        
-        $(".videos").append(
-            '<iframe width="360" height="215" src="https://www.youtube.com/embed/' + vidId + '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
-        )
-    }
-    })
-
-})
-
-$(".articles").on("click", function(e){
-    e.preventDefault();
-    $(".fullwiki").toggle()
-    $(".articles").toggle()
-    $("#close").toggle()
-})
-
-$("#close").on("click", function(e){
-    e.preventDefault();
-    $(".fullwiki").toggle()
-    $(".articles").toggle()
-    $("#close").toggle()
-})
-    </script>
     <script type="text/javascript" src="./assets/script.js"></script>
 </body>
 </html>
