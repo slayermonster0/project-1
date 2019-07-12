@@ -1,10 +1,18 @@
 
-.container, .searchContainer {
+.wallpaper {
     margin-left: 15%;
     margin-right: 15%;
     margin-top: 2%;
     margin-bottom: 2%;
     border: 1px solid red;
+}
+
+.searchContainer {
+    border: 1px solid blue;
+}
+
+.container {
+    border: 1px solid green;
 }
 
 .wallimg {
@@ -14,8 +22,19 @@
 
 .wframe {
     height: 500px;
-    width: 100%;
+    width: 80%;
     max-width: 900;
     /* height="551" width="705" */
     position: absolute;
+    opacity: 0.9;
+    margin-left: -4%;
+}
+
+.searchmatch {
+    font-weight: bold;
+}
+
+.articles {
+    padding: 10px;
+    margin-bottom: 1%; 
 }
