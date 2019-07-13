@@ -1,13 +1,44 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1909a90c04b490a40a2838ff0e61a56c82540f4a
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Blood.Hound</title>
+    <link rel="stylesheet" type="text/css" href="./assets/reset.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Baloo|Indie+Flower|Francois+One|Molengo|Monoton|Righteous|Rubik+Mono+One|Staatliches&display=swap" rel="stylesheet">
+    <link rel="icon" href="./assets/images/favicon.ico"> <!--Favicon needed-->
 </head>
 <body>
-    <p>hello world</p>
-    <input type="text"></input>
+    <video autoplay muted loop id="bgroundVideo">
+        <source src="./assets/images/wallpaper.mp4" type="video/mp4">
+        Your browser doesn't support HTML5 videos.
+    </video>
+    <div class="wallpaper">
+    <div class="searchContainer">
+        <h1><span id="blood">Blood</span><span id="mid">.</span><span id="hound">hound</span></h1>
+        <input id="search" type="text" placeholder="Your search here..."></input>
+        <input type="submit" id="submit" value="Search">
+    </div>
+    <div class="frontpage">
+        <h class="summaryT">Summary Title</h>
+        <p class="summaryD">Description here. Description here. Description here. Description here. Description here. Description here. </p>
+    </div>
+    <div class="container">
+        <div class="articles"></div>
+        <input type="submit" id="close" value="Close">
+        <div class="fullwiki">
+        </div>
+        <div class="videos"></div>
+        
+    </div>
+    </div>
+    <script type="text/javascript" src="./assets/script.js"></script>
 </body>
 </html>
