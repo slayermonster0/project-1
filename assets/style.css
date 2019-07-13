@@ -26,6 +26,13 @@ h1 {
 
 #blood {
     font-family: Rubik Mono One;
+    background: url("./images/bloodhound.jpg");
+    background-position: 65% 35%;
+    background-size: 150%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-color: #000000;
+    -webkit-text-stroke-width: 1px;
 }
 
 #hound {
@@ -58,7 +65,7 @@ h1 {
     transition: 0.5s;
 }
 
-#submit:hover {
+#submit:hover, #close:hover {
     cursor: pointer;
 }
 
@@ -75,6 +82,11 @@ h1 {
 .wallimg {
     position: absolute;
     left: 50%;
+}
+
+.wikiTitle {
+    font-weight: Bold;
+    font-size: 4vw;
 }
 
 .wframe {
