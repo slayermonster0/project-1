@@ -57,9 +57,9 @@ h1 {
 }
 
 .wallpaper {
-    margin-left: 15%;
-    margin-right: 15%;
-    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2%;
     margin-bottom: 2%;
     border: 1px solid red;
 }
@@ -201,7 +201,7 @@ h1 {
 }
 
 ::-webkit-scrollbar {
-    width: 6px;
+    width: 10px;
     height: 8px;
 }
 

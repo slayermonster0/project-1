@@ -4,11 +4,13 @@ var search = "";
 start()
 $("#submit").on("click", function(){
     titleCenter()
+    hStyle()
     $(".frontpage").hide()
     $(".videos").show()
     $(".articles").show()
+    $("#close").hide()
     search = $("#search").val().trim();
-    var wikiURL = proxyurl+ "https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exchars=1000&explaintext&titles=" + search + "&utf8=&format=json"
+    var wikiURL = proxyurl+ "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&exchars=1000&titles=" + search;
     var wikiFrame = '<iframe class="wframe" src="https://en.wikipedia.org/wiki/' + search + '?printable=yes"></iframe>'
     $.ajax({
 url: wikiURL,
@@ -69,6 +71,10 @@ function start () {
     $(".articles").hide()
 }
 
+function hStyle () {
+    $("h1").css("font-size", "3vw");
+}
+
 $(".articles").on("click", function(e){
 e.preventDefault();
 $(".fullwiki").toggle()
@@ -83,3 +89,12 @@ $(".articles").toggle()
 $("#close").toggle()
 })
 })
+
+$('body').keypress(function (e) {
+    var key = e.which;
+    if(key == 13)  // the enter key code
+     {
+       $("#submit").click();
+       return false;  
+     }
+   });   
