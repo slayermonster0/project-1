@@ -5,6 +5,7 @@ start()
 $("#submit").on("click", function(){
     titleCenter()
     hStyle()
+    wallpaper()
     $(".frontpage").hide()
     $(".videos").show()
     $(".articles").show()
@@ -39,7 +40,7 @@ method: "GET"
     $(".fullwiki").append(wikiFrame)
     $(".fullwiki").attr("style", "display: none")
 })
-    var queryURL = "https://www.googleapis.com/youtube/v3/search?maxResults=10&videoEmbeddable=true&part=snippet&order=relevance&q=" + search + "&type=video&videoDefinition=any&key=AIzaSyA_kaHaStvMNysgbkURFT6wQ6-2kTqXv_c";
+    var queryURL = "https://www.googleapis.com/youtube/v3/search?maxResults=10&videoEmbeddable=true&part=snippet&order=relevance&q=" + search + "&type=video&videoDefinition=any&key=AIzaSyCZ7G2n1C1pRK-4u4OOwsGN5xwqsxXaeTg";
     console.log(queryURL)
 $.ajax({
 url: queryURL,
@@ -73,6 +74,11 @@ function start () {
 
 function hStyle () {
     $("h1").css("font-size", "5vw");
+}
+
+function wallpaper () {
+    $("#bgroundVideo").fadeOut();
+    $("body").css("background", "url('./assets/images/wallpaper2.jpg')")
 }
 
 $(".articles").on("click", function(e){

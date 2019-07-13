@@ -26,6 +26,7 @@ body {
     scrollbar-color: #e7e7e798;
     scrollbar-track-color: #00000088;
     scrollbar-highlight-color: #ffffffd0;
+    transition: 0.5s;
 }
 
 h1 {
