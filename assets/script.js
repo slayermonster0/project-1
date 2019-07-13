@@ -4,11 +4,14 @@ var search = "";
 start()
 $("#submit").on("click", function(){
     titleCenter()
+    hStyle()
+    wallpaper()
     $(".frontpage").hide()
     $(".videos").show()
     $(".articles").show()
+    $("#close").hide()
     search = $("#search").val().trim();
-    var wikiURL = proxyurl+ "https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exchars=1000&explaintext&titles=" + search + "&utf8=&format=json"
+    var wikiURL = proxyurl+ "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&exchars=1000&titles=" + search;
     var wikiFrame = '<iframe class="wframe" src="https://en.wikipedia.org/wiki/' + search + '?printable=yes"></iframe>'
     $.ajax({
 url: wikiURL,
@@ -37,7 +40,7 @@ method: "GET"
     $(".fullwiki").append(wikiFrame)
     $(".fullwiki").attr("style", "display: none")
 })
-    var queryURL = proxyurl+ "https://www.googleapis.com/youtube/v3/search?maxResults=10&videoEmbeddable=true&part=snippet&order=relevance&q=" + search + "&type=video&videoDefinition=any&key=AIzaSyA_kaHaStvMNysgbkURFT6wQ6-2kTqXv_c";
+    var queryURL = "https://www.googleapis.com/youtube/v3/search?maxResults=10&videoEmbeddable=true&part=snippet&order=relevance&q=" + search + "&type=video&videoDefinition=any&key=AIzaSyCZ7G2n1C1pRK-4u4OOwsGN5xwqsxXaeTg";
     console.log(queryURL)
 $.ajax({
 url: queryURL,
@@ -69,6 +72,15 @@ function start () {
     $(".articles").hide()
 }
 
+function hStyle () {
+    $("h1").css("font-size", "5vw");
+}
+
+function wallpaper () {
+    $("#bgroundVideo").fadeOut();
+    $("body").css("background", "url('./assets/images/wallpaper2.jpg')")
+}
+
 $(".articles").on("click", function(e){
 e.preventDefault();
 $(".fullwiki").toggle()
@@ -83,3 +95,12 @@ $(".articles").toggle()
 $("#close").toggle()
 })
 })
+
+$('body').keypress(function (e) {
+    var key = e.which;
+    if(key == 13)  // the enter key code
+     {
+       $("#submit").click();
+       return false;  
+     }
+   });   

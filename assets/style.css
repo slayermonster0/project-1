@@ -26,6 +26,7 @@ body {
     scrollbar-color: #e7e7e798;
     scrollbar-track-color: #00000088;
     scrollbar-highlight-color: #ffffffd0;
+    transition: 0.5s;
 }
 
 h1 {
@@ -57,11 +58,12 @@ h1 {
 }
 
 .wallpaper {
-    margin-left: 15%;
-    margin-right: 15%;
-    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2%;
     margin-bottom: 2%;
     border: 1px solid red;
+    transition: 0.5s;
 }
 
 #search, #submit, #close {
@@ -103,7 +105,7 @@ h1 {
     border: 1px solid blue;
     text-align: center;
     padding-bottom: 15px;
-    margin-top: 20%;
+    margin-top: 10%;
     transition: 0.5s;
 }
 
@@ -130,13 +132,11 @@ h1 {
 }
 
 .wframe {
-    height: 500px;
-    width: 80%;
-    max-width: 900;
+    height: 700px;
+    width: 98%;
     /* height="551" width="705" */
-    position: absolute;
     opacity: 0.9;
-    margin-left: -4%;
+    margin: auto;
     border: 1px solid #00000080;
     box-shadow: 1px 1px 10px #000000;
     padding: 8px;
@@ -186,8 +186,7 @@ h1 {
     overflow-y: hidden;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
-    background-color: #ffffff75;
-    border: 1px solid #00000080;
+    border: 2px solid #00000080;
     box-shadow: 2px 2px 10px #000000;
 }
 
@@ -201,7 +200,7 @@ h1 {
 }
 
 ::-webkit-scrollbar {
-    width: 6px;
+    width: 10px;
     height: 8px;
 }
 
