@@ -3,6 +3,7 @@ var proxyurl = "https://cors-anywhere.herokuapp.com/";
 var search = "";
 start()
 $("#submit").on("click", function(){
+    titleCenter()
     $(".videos").show()
     $(".articles").show()
     search = $("#search").val().trim();
@@ -56,6 +57,10 @@ method: "GET"
 })
 
 })
+
+function titleCenter () {
+    $(".searchContainer").css("margin-top", "1%");
+}
 
 function start () {
     $("#close").hide()

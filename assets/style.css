@@ -9,6 +9,15 @@
     }
   }
 
+#bgroundVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -99;
+}
+
 button:focus, input:focus {
     outline: none;
 }
@@ -31,12 +40,13 @@ h1 {
     background-size: 150%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    -webkit-text-stroke-color: #000000;
-    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #ffffff;
+    -webkit-text-stroke-width: 6px;
 }
 
 #hound {
     font-family: Indie Flower;
+    text-shadow: 1px 1px 0 rgb(131, 131, 131);
 }
 
 .wallpaper {
@@ -73,10 +83,19 @@ h1 {
     border: 1px solid blue;
     text-align: center;
     padding-bottom: 15px;
+    margin-top: 25%;
+    transition: 0.5s;
+}
+
+.frontpage {
+    margin: 5%;
+    width: 50%;
+    padding-left: 15%;
 }
 
 .container {
     border: 1px solid green;
+    transition: 0.5s;
 }
 
 .wallimg {
