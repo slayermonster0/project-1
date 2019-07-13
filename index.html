@@ -5,64 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Blood.Hound</title>
+    <link rel="stylesheet" type="text/css" href="./assets/reset.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Baloo|Indie+Flower|Francois+One|Molengo|Monoton|Righteous|Rubik+Mono+One|Staatliches&display=swap" rel="stylesheet">
+    <link rel="icon" href="./assets/images/favicon.ico"> <!--Favicon needed-->
 </head>
 <body>
-    <p>hello world</p>
-    <input id="search" type="text"></input>
-    <button id="submit">Submit</button>
-    <div class="videos"></div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script>
-    
-
-    var search = "";
-    
-    
-    
-    $("button").on("click", function(){
-        $(".videos").empty()
-        search = $("#search").val().trim();
-        var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&q=" + search + "&type=video&videoCategoryId=17&videoDefinition=any&key=AIzaSyA_kaHaStvMNysgbkURFT6wQ6-2kTqXv_c";
-    $.ajax({
-    url: queryURL,
-    method: "GET"
-    }).then(function(response) {
-    console.log("Search: " + search)
-    console.log("RESPONSE:")
-    console.log(response)
-        for (var i = 0; i < response.items.length; i++) {
-        var vidId = response.items[i].id.videoId;
-        console.log("vidId: " + vidId)
+    <video autoplay muted loop id="bgroundVideo">
+        <source src="./assets/images/wallpaper.mp4" type="video/mp4">
+        Your browser doesn't support HTML5 videos.
+    </video>
+    <div class="wallpaper">
+    <div class="searchContainer">
+        <h1><span id="blood">Blood</span><span id="mid">.</span><span id="hound">hound</span></h1>
+        <input id="search" type="text" placeholder="Your search here..."></input>
+        <input type="submit" id="submit" value="Search">
+    </div>
+    <div class="frontpage">
+        <h class="summaryT">Summary Title</h>
+        <p class="summaryD">Description here. Description here. Description here. Description here. Description here. Description here. </p>
+    </div>
+    <div class="container">
+        <div class="articles"></div>
+        <input type="submit" id="close" value="Close">
+        <div class="fullwiki">
+        </div>
+        <div class="videos"></div>
         
-        $(".videos").append(
-            '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + vidId + '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
-        )
-    }
-    })
-});
-    
-    // function getInfo () {
-    // var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&order=viewCount&q=" + search + "&type=video&videoCategoryId=17&videoDefinition=any&key=AIzaSyA_kaHaStvMNysgbkURFT6wQ6-2kTqXv_c";
-    // $.ajax({
-    // url: queryURL,
-    // method: "GET"
-    // }).then(function(response) {
-    // console.log("Search: " + search)
-    // console.log("RESPONSE:")
-    // console.log(response) 
-    
-    // for (var i = 0; i < response.items; i++) {
-    //     var vidId = response.items[i].id.videoId;
-    //     console.log(vidId)
-    // }
-
-    // })
-    // }
-
-
-
-    </script>
-
+    </div>
+    </div>
+    <script type="text/javascript" src="./assets/script.js"></script>
 </body>
 </html>
