@@ -4,6 +4,7 @@ var search = "";
 start()
 $("#submit").on("click", function(){
     titleCenter()
+    $(".frontpage").hide()
     $(".videos").show()
     $(".articles").show()
     search = $("#search").val().trim();
@@ -59,7 +60,7 @@ method: "GET"
 })
 
 function titleCenter () {
-    $(".searchContainer").css("margin-top", "1%");
+    $(".searchContainer").css("margin-top", "-15%");
 }
 
 function start () {
