@@ -39,7 +39,7 @@ method: "GET"
     $(".fullwiki").append(wikiFrame)
     $(".fullwiki").attr("style", "display: none")
 })
-    var queryURL = proxyurl+ "https://www.googleapis.com/youtube/v3/search?maxResults=10&videoEmbeddable=true&part=snippet&order=relevance&q=" + search + "&type=video&videoDefinition=any&key=AIzaSyA_kaHaStvMNysgbkURFT6wQ6-2kTqXv_c";
+    var queryURL = "https://www.googleapis.com/youtube/v3/search?maxResults=10&videoEmbeddable=true&part=snippet&order=relevance&q=" + search + "&type=video&videoDefinition=any&key=AIzaSyA_kaHaStvMNysgbkURFT6wQ6-2kTqXv_c";
     console.log(queryURL)
 $.ajax({
 url: queryURL,
@@ -72,7 +72,7 @@ function start () {
 }
 
 function hStyle () {
-    $("h1").css("font-size", "3vw");
+    $("h1").css("font-size", "5vw");
 }
 
 $(".articles").on("click", function(e){
