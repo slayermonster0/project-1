@@ -2,6 +2,7 @@ $(document).ready(function() {
 var proxyurl = "https://cors-anywhere.herokuapp.com/";
 var search = "";
 start()
+$(".side").hide();
 $("#submit").on("click", function(){
     titleCenter()
     hStyle()
@@ -130,11 +131,13 @@ $("#close").toggle()
 })
 
 $("#obutton").on("click", function() {
-    $(".side").css("display", "block");
+    
+    $(".side").fadeIn();
 })
 
 $(".closebtn").on("click", function(){
-    $(".side").css("display", "none");
+    
+    $(".side").fadeOut();
 })
 
 $('body').keypress(function (e) {
