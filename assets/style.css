@@ -34,21 +34,10 @@ h1 {
     font-size: 7vw;
 }
 
-#blood {
+#blood, #mid {
     font-family: Molengo;
     color: #ffffff;
-    background-position: 65% 35%;
-    background-size: 150%;
     text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.788);
-}
-
-#mid {
-    font-size: 250px;
-    background: url("./images/bloodhoundA.png");
-    background-position: 55% 67%;
-    background-size: 60%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 #hound {
@@ -58,6 +47,12 @@ h1 {
 }
 
 .wallpaper {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     margin-left: 10%;
     margin-right: 10%;
     margin-top: 2%;

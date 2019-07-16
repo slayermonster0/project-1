@@ -58,6 +58,7 @@ method: "GET"
             var thumbUrl = thumbSource.thumbnail.source
             console.log(thumbUrl)
             var newImg = $("<img>")
+            newImg.attr("class", "wikiThumb")
             newImg.attr("src", thumbUrl)
             $(".wikiDesc").prepend(newImg)
         })
@@ -88,7 +89,10 @@ method: "GET"
 })
 
 function titleCenter () {
-    $(".searchContainer").css("margin-top", "-15%");
+    $(".searchContainer").css("top", "1");
+    $(".searchContainer").css("position", "sticky")
+    $(".searchContainer").css("margin-top", "0")
+    $(".wallpaper").css("margin-top", "0")
 }
 
 function start () {
