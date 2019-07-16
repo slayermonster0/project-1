@@ -32,12 +32,15 @@ method: "GET"
     var wikiSnip = wikiProperties[wikiPageId].extract 
     var newDiv = $("<div>")
     var newTitle = $("<h3>")
+    var newp = $("<p>")
     newTitle.attr("class", "wikiTitle")
-    newDiv.attr("class", "wikiDesc")
+    newDiv.attr("class", "wikiDesc clearfix")
     console.log(wikiSnip)
     newTitle.prepend(wikiTitle)
     newDiv.prepend(newTitle)
-    newDiv.append(wikiSnip)
+    newp.attr("class", "description")
+    newp.prepend(wikiSnip)
+    newDiv.append(newp)
     $(".articles").append(newDiv);
     $(".fullwiki").append(wikiFrame)
     $(".fullwiki").attr("style", "display: none")
@@ -92,6 +95,7 @@ function titleCenter () {
     $(".searchContainer").css("top", "1");
     $(".searchContainer").css("position", "sticky")
     $(".searchContainer").css("margin-top", "0")
+    $(".searchContainer").css("transform", "translateY(0%)")
     $(".wallpaper").css("margin-top", "0")
 }
 
@@ -116,6 +120,10 @@ $(".fullwiki").toggle()
 $(".articles").toggle()
 $("#close").toggle()
 })
+
+$('#title').click(function() {
+    location.reload();
+});
 
 $("#close").on("click", function(e){
 e.preventDefault();
