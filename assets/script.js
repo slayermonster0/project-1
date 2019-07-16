@@ -67,7 +67,6 @@ method: "GET"
         })
 })
 
-
     var queryURL = "https://www.googleapis.com/youtube/v3/search?maxResults=10&videoEmbeddable=true&part=snippet&order=relevance&q=" + search + "&type=video&videoDefinition=any&key=" //AIzaSyCZ7G2n1C1pRK-4u4OOwsGN5xwqsxXaeTg"; //Re-enable
     console.log(queryURL)
 $.ajax({
@@ -88,14 +87,11 @@ method: "GET"
 }
 })
 
-
 })
 
 function titleCenter () {
-    $(".searchContainer").css("top", "1");
-    $(".searchContainer").css("position", "sticky")
-    $(".searchContainer").css("margin-top", "0")
-    $(".searchContainer").css("transform", "translateY(0%)")
+    $(".searchContainer").removeClass("searchContainer1")
+    $(".searchContainer").addClass("searchContainer2")
     $(".wallpaper").css("margin-top", "0")
 }
 
@@ -131,6 +127,14 @@ $(".fullwiki").toggle()
 $(".articles").toggle()
 $("#close").toggle()
 })
+})
+
+$("#obutton").on("click", function() {
+    $(".side").css("display", "block");
+})
+
+$(".closebtn").on("click", function(){
+    $(".side").css("display", "none");
 })
 
 $('body').keypress(function (e) {
