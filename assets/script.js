@@ -12,9 +12,9 @@ $("#submit").on("click", function(){
     $("#close").hide()
     search = $("#search").val().trim();
     var wikiURL = proxyurl+ "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&exchars=1000&titles=" + search;
-    var wikiPicFile = proxyurl+ "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=images&redirects=1&titles=" + search
+    var wikiPicFile = proxyurl+ "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=pageimages&redirects=1&titles=" + search + "&pithumbsize=300"
     var wikiFrame = '<iframe class="wframe" src="https://en.wikipedia.org/wiki/' + search + '?printable=yes"></iframe>'
-    var picName = [];
+    var wikiPageId
     $.ajax({
 url: wikiURL,
 method: "GET"
@@ -24,13 +24,12 @@ method: "GET"
     $(".wikiDesc").remove();
     $(".fullwiki").empty();
     var wikiProperties = response.query.pages;
-    var wikiPageId = Object.keys(wikiProperties)[0];
+    wikiPageId = Object.keys(wikiProperties)[0];
     console.log(wikiPageId)
     console.log(wikiProperties)
     var wikiTitle = wikiProperties[wikiPageId].title
     console.log(wikiTitle)
-    var wikiSnip = wikiProperties[wikiPageId].extract
-    
+    var wikiSnip = wikiProperties[wikiPageId].extract 
     var newDiv = $("<div>")
     var newTitle = $("<h3>")
     newTitle.attr("class", "wikiTitle")
@@ -42,8 +41,30 @@ method: "GET"
     $(".articles").append(newDiv);
     $(".fullwiki").append(wikiFrame)
     $(".fullwiki").attr("style", "display: none")
+    $.ajax({
+        url: wikiPicFile,
+        method: "GET"
+        }).then(function(response){
+            console.log(response)
+            console.log(response.query.pages)
+            var thumb = response.query.pages
+            console.log(thumb)
+            console.log(wikiPageId)
+            console.log(thumb[wikiPageId])
+            var thumbSource = thumb[wikiPageId]
+            console.log(thumbSource)
+            console.log(thumbSource.thumbnail)
+            console.log(thumbSource.thumbnail.source)
+            var thumbUrl = thumbSource.thumbnail.source
+            console.log(thumbUrl)
+            var newImg = $("<img>")
+            newImg.attr("src", thumbUrl)
+            $(".wikiDesc").prepend(newImg)
+        })
 })
-    var queryURL = "https://www.googleapis.com/youtube/v3/search?maxResults=10&videoEmbeddable=true&part=snippet&order=relevance&q=" + search + "&type=video&videoDefinition=any&key=AIzaSyCZ7G2n1C1pRK-4u4OOwsGN5xwqsxXaeTg"; //Re-enable
+
+
+    var queryURL = "https://www.googleapis.com/youtube/v3/search?maxResults=10&videoEmbeddable=true&part=snippet&order=relevance&q=" + search + "&type=video&videoDefinition=any&key=" //AIzaSyCZ7G2n1C1pRK-4u4OOwsGN5xwqsxXaeTg"; //Re-enable
     console.log(queryURL)
 $.ajax({
 url: queryURL,
