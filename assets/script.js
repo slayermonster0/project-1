@@ -2,6 +2,7 @@ $(document).ready(function() {
 var proxyurl = "https://cors-anywhere.herokuapp.com/";
 var search = "";
 start()
+$(".side").hide();
 $("#submit").on("click", function(){
     titleCenter()
     hStyle()
@@ -32,12 +33,15 @@ method: "GET"
     var wikiSnip = wikiProperties[wikiPageId].extract 
     var newDiv = $("<div>")
     var newTitle = $("<h3>")
+    var newp = $("<p>")
     newTitle.attr("class", "wikiTitle")
-    newDiv.attr("class", "wikiDesc")
+    newDiv.attr("class", "wikiDesc clearfix")
     console.log(wikiSnip)
     newTitle.prepend(wikiTitle)
     newDiv.prepend(newTitle)
-    newDiv.append(wikiSnip)
+    newp.attr("class", "description")
+    newp.prepend(wikiSnip)
+    newDiv.append(newp)
     $(".articles").append(newDiv);
     $(".fullwiki").append(wikiFrame)
     $(".fullwiki").attr("style", "display: none")
@@ -58,11 +62,11 @@ method: "GET"
             var thumbUrl = thumbSource.thumbnail.source
             console.log(thumbUrl)
             var newImg = $("<img>")
+            newImg.attr("class", "wikiThumb")
             newImg.attr("src", thumbUrl)
             $(".wikiDesc").prepend(newImg)
         })
 })
-
 
     var queryURL = "https://www.googleapis.com/youtube/v3/search?maxResults=10&videoEmbeddable=true&part=snippet&order=relevance&q=" + search + "&type=video&videoDefinition=any&key=" //AIzaSyCZ7G2n1C1pRK-4u4OOwsGN5xwqsxXaeTg"; //Re-enable
     console.log(queryURL)
@@ -84,11 +88,12 @@ method: "GET"
 }
 })
 
-
 })
 
 function titleCenter () {
-    $(".searchContainer").css("margin-top", "-15%");
+    $(".searchContainer").removeClass("searchContainer1")
+    $(".searchContainer").addClass("searchContainer2")
+    $(".wallpaper").css("margin-top", "0")
 }
 
 function start () {
@@ -113,12 +118,26 @@ $(".articles").toggle()
 $("#close").toggle()
 })
 
+$('#title').click(function() {
+    location.reload();
+});
+
 $("#close").on("click", function(e){
 e.preventDefault();
 $(".fullwiki").toggle()
 $(".articles").toggle()
 $("#close").toggle()
 })
+})
+
+$("#obutton").on("click", function() {
+    
+    $(".side").fadeIn();
+})
+
+$(".closebtn").on("click", function(){
+    
+    $(".side").fadeOut();
 })
 
 $('body').keypress(function (e) {

@@ -9,6 +9,34 @@
     }
   }
 
+footer {
+    background-color: #00000057;
+    height: 40px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.61);
+    font-size: 20px;
+    font-family: Righteous;
+}
+
+.footer {
+    bottom: 25%;
+    left: 0;
+    right: 0;
+    margin: 0;
+    position: absolute;
+}
+
+#obutton {
+    bottom: 25%;
+    left: 0;
+    right: 0;
+    margin: 0;
+    position: absolute;
+}
+
 #bgroundVideo {
     position: fixed;
     right: 0;
@@ -34,21 +62,10 @@ h1 {
     font-size: 7vw;
 }
 
-#blood {
+#blood, #mid {
     font-family: Molengo;
     color: #ffffff;
-    background-position: 65% 35%;
-    background-size: 150%;
     text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.788);
-}
-
-#mid {
-    font-size: 250px;
-    background: url("./images/bloodhoundA.png");
-    background-position: 55% 67%;
-    background-size: 60%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 #hound {
@@ -58,6 +75,12 @@ h1 {
 }
 
 .wallpaper {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     margin-left: 10%;
     margin-right: 10%;
     margin-top: 2%;
@@ -105,7 +128,22 @@ h1 {
     border: 1px solid blue;
     text-align: center;
     padding-bottom: 15px;
-    margin-top: 10%;
+    transition: 0.5s;
+}
+
+.searchContainer1 {
+    position: absolute;
+    margin: auto;
+    top: 35%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: 0.5s;
+}
+
+.searchContainer2 {
+    top: 1;
+    position: sticky;
     transition: 0.5s;
 }
 
@@ -129,6 +167,20 @@ h1 {
 .wikiTitle {
     font-weight: Bold;
     font-size: 4vw;
+}
+
+.wikiThumb {
+    float: right;
+    border-radius: 15px;
+    box-shadow: 1px 1px 7px #000000;
+}
+
+#title:hover {
+    cursor: pointer;
+}
+
+.clearfix {
+    overflow: auto;
 }
 
 .wframe {
@@ -217,3 +269,36 @@ h1 {
     background-color: #ffffffd0;
     box-shadow: 0 0 7px #00ffdd98;
 }
+
+.side {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #00000077;
+    overflow-x: hidden;
+    padding-top: 60px;
+  }
+
+  .side a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #838383;
+      display: block;
+  }
+
+  .side a:hover {
+      color: #fffdfd;
+  }
+
+  .side .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+  }
+
