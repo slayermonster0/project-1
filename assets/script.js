@@ -3,6 +3,7 @@ var proxyurl = "https://cors-anywhere.herokuapp.com/";
 var search = "";
 start()
 $(".side").hide();
+$(".news").hide();
 $("#submit").on("click", function(){
     titleCenter()
     hStyle()
@@ -11,7 +12,10 @@ $("#submit").on("click", function(){
     $(".videos").show()
     $(".articles").show()
     $("#close").hide()
+    $(".news").show()
     search = $("#search").val().trim();
+    getNews()
+    
     var wikiURL = proxyurl+ "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&exchars=1000&titles=" + search;
     var wikiPicFile = proxyurl+ "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=pageimages&redirects=1&titles=" + search + "&pithumbsize=300"
     var wikiFrame = '<iframe class="wframe" src="https://en.wikipedia.org/wiki/' + search + '?printable=yes"></iframe>'
@@ -90,6 +94,59 @@ method: "GET"
 
 })
 
+function getNews () {
+    var newsURL = "https://newsapi.org/v2/everything?q="+ search + "&from=2019-06-20&sortBy=publishedAt&apiKey=4bf59bd743a540a78774e25ee1328ab9"
+    $.ajax({
+        url: newsURL,
+        method: "GET"
+        }).then(function(response) {
+            $(".news").empty()
+            console.log(response.articles[0])
+        for (var i = 0; i < 10; i++) {
+            var alink = $("<a>")
+            var div = $("<div>")
+            var imgT = $("<img>")
+            div.attr("class", "newsArt clearfix")
+            var title = "<h4>" + response.articles[i].title + "</h4>"
+            console.log(title)
+            var url = response.articles[i].url
+            console.log(url)
+            checkNull(url)
+            var img = response.articles[i].urlToImage
+            console.log(img)
+            checkNull(img)
+            var newsSource = "<h5>" + response.articles[i].source.name + "</h5>"
+            console.log(newsSource)
+            checkNull(newsSource)
+            var pubDateRaw = moment(response.articles[i].publishedAt).startOf("hour").fromNow()
+            var pubDate = "<p class='pubDate'>" + pubDateRaw + "</p>"
+            console.log(pubDate)
+            checkNull(pubDate)
+            var artDesc = "<p class='artDesc'>" + response.articles[i].content + "</p>"
+            console.log(artDesc)
+            checkNull(artDesc)
+            var author = "<p class='author'>" + response.articles[i].author + "</p>"
+            console.log(author)
+            checkNull(response.articles[i].author)
+            imgT.attr("src", img)
+            imgT.attr("class", "newsImg")
+            alink.attr("href", url)
+            div.append(imgT,title,newsSource,author,pubDate,artDesc)
+            alink.append(div)
+            $(".news").append(alink);
+            // $(".artDesc").text(function(index, currentText){
+            //     return currentText.substr(0, 1000);
+            // })
+        }
+})
+}
+
+function checkNull (value) {
+    if (value === "null") {
+        value = "";
+    }
+}
+
 function titleCenter () {
     $(".searchContainer").removeClass("searchContainer1")
     $(".searchContainer").addClass("searchContainer2")
@@ -108,7 +165,7 @@ function hStyle () {
 
 function wallpaper () {
     $("#bgroundVideo").fadeOut();
-    $("body").css("background", "url('./assets/images/wallpaper2.jpg')")
+    $("body").css({"background": "url('./assets/images/wallpaper2.jpg')", "background-attachment": "fixed"});
 }
 
 $(".articles").on("click", function(e){
