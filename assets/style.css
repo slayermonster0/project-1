@@ -107,6 +107,7 @@
 #slidetxt:hover {
     animation-play-state: paused;
     cursor: default;
+    color: #ffffff;
 }
 
 footer, .topslider {
@@ -128,6 +129,10 @@ footer {
     top: 0;
     height: 30px;
     background-color: #ff000057;
+}
+
+.topslider:hover {
+    background-color: #ff000080;
 }
 
 .footer {
