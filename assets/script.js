@@ -1,21 +1,13 @@
 $(document).ready(function() {
 var proxyurl = "https://cors-anywhere.herokuapp.com/";
 var search = "";
-var localStor = JSON.parse(localStorage.getItem("SavedSearches"))
-console.log(localStor)
-var savedSearches = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
-    'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
-    'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
-    'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
-    'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
-    'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
-    'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island',
-    'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
-    'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
+var savedSearches = JSON.parse(localStorage.getItem("SavedSearches"))
+if (!Array.isArray(savedSearches)){
+    savedSearches = ['Morgan Freeman', 'Leonardo DiCaprio', 'Brad Pitt', 'Will Smith', 'Denzel Washington',
+    'Samuel L. Jackson', 'Tom Cruise', 'Hugh Jackman', 'Michael Caine', 'Dwayne Johnson', 'Kevin Durant', 'Anthony Davis', 'Trevor Ariza', 'Stephen Curry'
   ];
-for (var i = 0; i < localStor.length; i++) {
-    savedSearches.push(localStor[i])
 }
+console.log(savedSearches)
 start()
 getHeadlines()
 $(".side").hide();
@@ -32,7 +24,10 @@ $("#submit").on("click", function(){
     search = $("#search").val().trim();
     getNews()
     localStorage.getItem("SavedSearches", JSON.stringify(savedSearches))
-    savedSearches.push(search)
+    if (savedSearches.includes(search) === true) {
+    }   else {
+        savedSearches.push(search)
+    }
     localStorage.setItem("SavedSearches", JSON.stringify(savedSearches))
     var wikiURL = proxyurl+ "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&exchars=1000&titles=" + search;
     var wikiPicFile = proxyurl+ "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=pageimages&redirects=1&titles=" + search + "&pithumbsize=300"
