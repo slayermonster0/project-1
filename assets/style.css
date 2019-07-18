@@ -53,9 +53,7 @@ button:focus, input:focus {
 }
 
 body {
-    scrollbar-color: #e7e7e798;
-    scrollbar-track-color: #00000088;
-    scrollbar-highlight-color: #ffffffd0;
+    
     transition: 0.5s;
     background-attachment: fixed;
 }
@@ -100,7 +98,8 @@ h1 {
     padding-left: 12px;
     border: 1px solid grey;
     border-radius: 15px;
-    width: 20vw;
+    width: 25vw;
+    min-width: 300px;
     box-shadow: 1px 1px 10px #000000a2;
     padding-right: 55px;
     transition: 0.5s;
@@ -112,7 +111,7 @@ h1 {
 }
 
 #search:hover {
-    box-shadow: 1px 1px 10px #85ffd0a6;
+    box-shadow: 1px 1px 8px #ffffffa8;
 }
 
 #submit {
@@ -120,9 +119,13 @@ h1 {
     color: #ffffff;
     padding: 6px 10px;
     border-radius: 15px;
-    background-color: #005763;
-    font-size: 13px;
+    background-color: #6d4100;
+    font-size: 15px;
     transition: 0.5s;
+    position: relative;
+    bottom: -7px;
+    height: 36px;
+    margin-left: -65px;
 }
 
 #submit:hover {
@@ -218,6 +221,7 @@ h1 {
     box-shadow: 1px 1px 10px #000000;
     padding: 8px;
     transition: 0.5s;
+    border-radius: 8px;
 }
 
 .searchmatch {
@@ -233,7 +237,7 @@ h1 {
     overflow-x: hidden;
     overflow-y: scroll;
     scrollbar-color: #e7e7e798;
-    scrollbar-track-color: #00000088;
+    scrollbar-track-color: #00000077;
     scrollbar-highlight-color: #ffffffd0;
 }
 
