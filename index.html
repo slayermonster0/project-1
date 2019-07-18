@@ -6,8 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Blood.Hound</title>
     <link rel="stylesheet" type="text/css" href="./assets/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <script src="https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
+    <!--Inserting Modal for now, will add in later if possible-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <!--End of Modal links-->
     <link href="https://fonts.googleapis.com/css?family=Baloo|Indie+Flower|Francois+One|Molengo|Monoton|Righteous|Rubik+Mono+One|Staatliches&display=swap" rel="stylesheet">
     <link rel="icon" href="./assets/images/favicon.ico"> <!--Favicon needed-->
 </head>
@@ -23,8 +30,10 @@
     <div class="wallpaper">
     <div class="searchContainer searchContainer1">
         <h1 id="title"><span id="blood">Blood</span><span id="mid">.</span><span id="hound">hound</span></h1>
-        <input id="search" type="text" placeholder="Your search here..."></input>
-        <input type="submit" id="submit" value="Search">
+        <div id="searchbar">
+        <input class="search" id="search" type="text" placeholder="Type a keyword or name here..."></input>
+        <input type="submit" id="submit" value="Fetch">
+        </div>
         <div class="frontpage">
             <h class="summaryT">Summary Title</h>
             <p class="summaryD">Description here. Description here. Description here. Description here. Description here. Description here. </p>
@@ -35,6 +44,7 @@
         <input type="submit" id="close" value="Close">
         <div class="fullwiki">
         </div>
+        <div class="news"></div>
         <div class="videos"></div>
         
     </div>
