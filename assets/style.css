@@ -93,25 +93,41 @@ h1 {
     border: none;
 }
 
-#search, .tt-hint, .tt-menu {
-    padding: 8px;
+#search, .tt-hint {
     padding-left: 12px;
-    border: 1px solid grey;
+    padding-right: 55px;
+}
+
+#search, .tt-hint, .tt-menu {
+    padding: 8px;;
     border-radius: 15px;
+    border: 1px solid rgb(128, 128, 128);
     width: 25vw;
     min-width: 300px;
     box-shadow: 1px 1px 10px #000000a2;
-    padding-right: 55px;
     transition: 0.5s;
 }
 
 .tt-menu {
     background-color: #ffffff7c;
     text-align: left;
+    transition: 0.5s;
+}
+
+.tt-suggestion:hover {
+    cursor: pointer;
+    color: #6d4100;
+    background-color: #ffc17a9f;
+    border-radius: 5px;
+    transition: 0.3s;
 }
 
 #search:hover {
-    box-shadow: 1px 1px 8px #ffffffa8;
+    box-shadow: 0px 0px 8px #ffffffa8;
+}
+
+#search:focus {
+    box-shadow: 0 0 8px #ffffff;
 }
 
 #submit {
