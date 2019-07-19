@@ -164,7 +164,7 @@ function getNews () {
 }
 
 function getHeadlines () {
-    var headlineURL = "https://newsapi.org/v2/top-headlines?sources=google-news&apiKey=4c189fca99ad4518912222763849e3d2";
+    var headlineURL = "https://newsapi.org/v2/top-headlines?country=us&apiKey=4bf59bd743a540a78774e25ee1328ab9";
     var title = [];
     $.ajax({
         url: headlineURL,

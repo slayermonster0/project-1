@@ -192,6 +192,7 @@ footer {
     min-width: 100%;
     min-height: 100%;
     z-index: -99;
+    transition: 0.5s;
 }
 
 button:focus, input:focus {
@@ -573,6 +574,12 @@ h1 {
     border: 1px solid #00000080;
     box-shadow: 2px 2px 10px #000000;
     padding: 10px;
+    transition: 0.5s;
+  }
+
+  .newsArt:hover {
+    background-color: #75ccffc2;
+    -webkit-transform: scale(1.1);
   }
 
 a {
