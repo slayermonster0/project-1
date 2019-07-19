@@ -19,6 +19,31 @@
   }
 }
 
+@keyframes glowingpulse 
+{
+    0% {
+        text-shadow: 0 0 1px #ffffffd5;
+    }
+    20% {
+        text-shadow: 0 0 8px #ffffffd5;
+    }
+    40% {
+        text-shadow: 0 0 12px #ffffffd5;
+    }
+    60% {
+        text-shadow: 0 0 15px #ffffffd5;
+    }
+    80% {
+        text-shadow: 0 0 12px #ffffffd5;
+    }
+    90% {
+        text-shadow: 0 0 8px #ffffffd5;
+    }
+    100% {
+        text-shadow: 0 0 1px #ffffffd5;
+    }
+}
+
   @keyframes glow-rgbtxt
   {
     0% {
