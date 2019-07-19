@@ -13,15 +13,21 @@ getHeadlines()
 $(".side").hide();
 $(".news").hide();
 $("#submit").on("click", function(){
+    search = $("#search").val().trim();
+    if (search === "") {
+        document.getElementById("search").setAttribute("placeholder", "Can't be blank!")
+        setTimeout(function(){
+            document.getElementById("search").setAttribute("placeholder", "Type a keyword or name here...")}, 1000)
+        return;
+    }
     titleCenter()
-    hStyle()
     wallpaper()
     $(".frontpage").hide()
     $(".videos").show()
     $(".articles").show()
     $("#close").hide()
     $(".news").show()
-    search = $("#search").val().trim();
+    
     getNews()
     localStorage.getItem("SavedSearches", JSON.stringify(savedSearches))
     if (savedSearches.includes(search) === true) {
@@ -228,6 +234,7 @@ function titleCenter () {
     $(".searchContainer").removeClass("searchContainer1")
     $(".searchContainer").addClass("searchContainer2")
     $(".wallpaper").css("margin-top", "0")
+    $("h1").css("font-size", "5vw");
 }
 
 function start () {
@@ -236,8 +243,21 @@ function start () {
     $(".articles").hide()
 }
 
-function hStyle () {
-    $("h1").css("font-size", "5vw");
+function reset () {
+    $(".articles").empty()
+    $(".fullwiki").empty()
+    $("#close").hide()
+    $(".articles").hide()
+    $(".news").empty()
+    $(".news").hide()
+    $(".videos").empty()
+    $(".videos").hide()
+    $("#search").val("")
+    $("h1").css("font-size", "8vw")
+    $(".wallpaper").css("margin-top", "2%")
+    $(".searchContainer").removeClass("searchContainer2")
+    $(".searchContainer").addClass("searchContainer1")
+    $("#bgroundVideo").fadeIn();
 }
 
 function wallpaper () {
@@ -253,7 +273,8 @@ $("#close").toggle()
 })
 
 $('#title').click(function() {
-    location.reload();
+    reset();
+    console.log("Reset!")
 });
 
 $("#close").on("click", function(e){
