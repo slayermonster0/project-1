@@ -253,7 +253,7 @@ function titleCenter () {
     $(".searchContainer").removeClass("searchContainer1")
     $(".searchContainer").addClass("searchContainer2")
     $(".wallpaper").css("margin-top", "0")
-    $("h1").css("font-size", "5vw");
+    $("h1").animate({fontSize: "5vw"},200);
 }
 
 function start () {
@@ -272,7 +272,7 @@ function reset () {
     $(".videos").empty()
     $(".videos").hide()
     $("#search").val("")
-    $("h1").css("font-size", "8vw")
+    $("h1").animate({fontSize: "8vw"},200);
     $(".wallpaper").css("margin-top", "2%")
     $(".searchContainer").removeClass("searchContainer2")
     $(".searchContainer").addClass("searchContainer1")

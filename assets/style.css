@@ -482,12 +482,15 @@ h1 {
     max-width: 460px;
     object-fit: cover;
     max-height: 260px;
+    transition: 0.5s;
 }
 
 .vidThumbnail:hover {
     box-shadow: 0px 0px 8px #ffffff85;
     filter: brightness(140%);
     -webkit-filter: brightness(140%);
+    transform: scale(1.01);
+    -webkit-transform: scale(1.01);
 }
 
 ::-webkit-scrollbar {
