@@ -8,12 +8,13 @@
     <link rel="stylesheet" type="text/css" href="./assets/reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <script type="text/javascript" src="http://trgraglia.github.io/jquery.horizonScroll.js/demo/jquery.horizonScroll.js"></script>
     <script src="https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
     <!--Inserting Modal for now, will add in later if possible-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
     <!--End of Modal links-->
     <link href="https://fonts.googleapis.com/css?family=Baloo|Indie+Flower|Francois+One|Molengo|Monoton|Righteous|Rubik+Mono+One|Staatliches&display=swap" rel="stylesheet">
     <link rel="icon" href="./assets/images/favicon.ico"> <!--Favicon needed-->
@@ -29,17 +30,17 @@
         <a href="javascript:void(0)" class="closebtn">&times;</a>
         <p class="sideT">Powered By:</p>
         <div class = sideP>
-            <a href="https://www.mediawiki.org/wiki/MediaWiki">
+            <a data-fancybox data-type="iframe" data-src="https://www.mediawiki.org/wiki/MediaWiki" href="javascript:;">
             <img class="sidePic" src="./assets/images/PoweredBy/mediawiki.png">
             </a>
         </div>
         <div class = sideP>
-            <a href="https://newsapi.org/">
+            <a data-fancybox data-type="iframe" data-src="https://newsapi.org/" href="javascript:;">
             <img class="sidePic" src="./assets/images/PoweredBy/newsAPI.png">
             </a>
         </div>
         <div class = sideP>
-            <a href="https://developers.google.com/youtube/v3/">
+            <a href="https://developers.google.com/youtube/v3/" target="_blank">
             <img class="sidePic" src="./assets/images/PoweredBy/youtube.png">
             </a>
         </div>
@@ -59,8 +60,11 @@
         </div>
         <div class="news"></div>
         <div class="videos"></div>
-        
     </div>
+    </div>
+    <div style="display: none;" id="modal">
+        <h2>Try to load this article here?</h2>
+        <p id="modalDesc">Some articles may not load due to preventative measures against clickjacking...</p>
     </div>
     <footer>
         <h6 class="footer">Copyright ©</h6>

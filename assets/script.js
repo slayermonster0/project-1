@@ -91,7 +91,7 @@ method: "GET"
         })
 })
 
-    var queryURL = "https://www.googleapis.com/youtube/v3/search?maxResults=10&videoEmbeddable=true&part=snippet&order=relevance&q=" + search + "&type=video&videoDefinition=any&key=" //AIzaSyCZ7G2n1C1pRK-4u4OOwsGN5xwqsxXaeTg"; //Re-enable
+    var queryURL = "https://www.googleapis.com/youtube/v3/search?maxResults=10&videoEmbeddable=true&part=snippet&order=relevance&q=" + search + "&type=video&videoDefinition=any&key=AIzaSyCZ7G2n1C1pRK-4u4OOwsGN5xwqsxXaeTg"; //Re-enable
     console.log(queryURL)
 $.ajax({
 url: queryURL,
@@ -101,20 +101,38 @@ method: "GET"
     console.log("Search: " + search)
     console.log("RESPONSE:")
     console.log(response)
+    var div = $("<div>")
+    div.attr("class", "videoGallery")
     for (var i = 0; i < response.items.length; i++) {
+    var alink = $("<a>")
+    var img = $("<img>")
+    img.attr("class", "vidThumbnail")
     var vidId = response.items[i].id.videoId;
+    alink.attr("data-fancybox", "YTvideos")
+    alink.attr("data-width", "640")
+    alink.attr("data-height", "360")
+    alink.attr("href", "https://www.youtube.com/watch?v="+vidId)
+    var vidThumb = response.items[i].snippet.thumbnails.high.url
+    img.attr("src", vidThumb)
     console.log("vidId: " + vidId)
-    
-    $(".videos").append(
-        '<iframe class="searchVid" width="360" height="215" src="https://www.youtube.com/embed/' + vidId + '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
-    )
+    console.log("vidThumb :" + vidThumb)
+    alink.append(img)
+    div.append(alink)
 }
+    $(".videos").append(div)
+})
+
+$("#next").on("click", function() {
+    $(".videos").animate( { scrollLeft: '+=100' }, 1000);
+})
+$("#prev").on("click", function() {
+    $(".videos").animate( { scrollLeft: '-=100' }, 1000);
 })
 
 })
 
 function getNews () {
-    var newsURL = "https://newsapi.org/v2/everything?q="+ search + "&from=2019-06-20&sortBy=publishedAt&apiKey=4bf59bd743a540a78774e25ee1328ab9"
+    var newsURL = "https://newsapi.org/v2/everything?q="+ search + "&from=2019-06-20&sortBy=publishedAt&apiKey=S4bf59bd743a540a78774e25ee1328ab9"
     $.ajax({
         url: newsURL,
         method: "GET"
@@ -153,6 +171,7 @@ function getNews () {
             imgT.attr("src", img)
             imgT.attr("class", "newsImg")
             alink.attr("href", url)
+            alink.attr("target", "_blank")
             div.append(imgT,title,newsSource,author,pubDate,artDesc)
             alink.append(div)
             $(".news").append(alink);
