@@ -389,6 +389,7 @@ h1 {
 }
 
 .wikiTitle {
+
     font-weight: Bold;
     font-size: 4vw;
 }
@@ -398,6 +399,8 @@ h1 {
     border-radius: 15px;
     box-shadow: 1px 1px 7px #000000;
     margin-left: 15px;
+    max-width: 400px;
+    width: 100%;
 }
 
 #title:hover {
@@ -461,9 +464,8 @@ h1 {
 .videos {
     border-radius: 8px;
     margin: 2%;
-    margin-left: -10%;
-    margin-right: -10%;
-    margin-bottom: 10%;
+    margin-left: -20%;
+    margin-right: -20%;
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
@@ -479,9 +481,9 @@ h1 {
     border-radius: 15px;
     box-shadow: 1px 1px 7px #000000;
     width: 100%;
-    max-width: 460px;
+    max-width: 590px;
     object-fit: cover;
-    max-height: 260px;
+    max-height: 330px;
     transition: 0.5s;
 }
 
@@ -648,6 +650,12 @@ h5 {
     color: rgb(144, 238, 144);
     padding-bottom: 5px;
     color: #ffffff;
+}
+
+.container2 {
+    background-color: #a7a7a7b0;
+    border-radius: 15px;
+    box-shadow: 2px 2px 10px #00000088; 
 }
 
 .artDesc {

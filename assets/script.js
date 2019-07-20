@@ -253,6 +253,7 @@ function titleCenter () {
     $(".searchContainer").removeClass("searchContainer1")
     $(".searchContainer").addClass("searchContainer2")
     $(".wallpaper").css("margin-top", "0")
+    $(".container").addClass("container2")
     $("h1").animate({fontSize: "5vw"},200);
 }
 
@@ -274,6 +275,7 @@ function reset () {
     $("#search").val("")
     $("h1").animate({fontSize: "8vw"},200);
     $(".wallpaper").css("margin-top", "2%")
+    $(".container").removeClass("container2")
     $(".searchContainer").removeClass("searchContainer2")
     $(".searchContainer").addClass("searchContainer1")
     $("#bgroundVideo").fadeIn();
