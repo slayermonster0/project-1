@@ -43,23 +43,17 @@ $("#submit").on("click", function(){
 url: wikiURL,
 method: "GET"
 }).then(function(response) {
-    console.log("test: ")
-    console.log(response)
     $(".wikiDesc").remove();
     $(".fullwiki").empty();
     var wikiProperties = response.query.pages;
     wikiPageId = Object.keys(wikiProperties)[0];
-    console.log(wikiPageId)
-    console.log(wikiProperties)
     var wikiTitle = wikiProperties[wikiPageId].title
-    console.log(wikiTitle)
     var wikiSnip = wikiProperties[wikiPageId].extract 
     var newDiv = $("<div>")
     var newTitle = $("<h3>")
     var newp = $("<p>")
     newTitle.attr("class", "wikiTitle")
     newDiv.attr("class", "wikiDesc clearfix")
-    console.log(wikiSnip)
     newTitle.prepend(wikiTitle)
     newDiv.prepend(newTitle)
     newp.attr("class", "description")
@@ -72,18 +66,9 @@ method: "GET"
         url: wikiPicFile,
         method: "GET"
         }).then(function(response){
-            console.log(response)
-            console.log(response.query.pages)
             var thumb = response.query.pages
-            console.log(thumb)
-            console.log(wikiPageId)
-            console.log(thumb[wikiPageId])
             var thumbSource = thumb[wikiPageId]
-            console.log(thumbSource)
-            console.log(thumbSource.thumbnail)
-            console.log(thumbSource.thumbnail.source)
             var thumbUrl = thumbSource.thumbnail.source
-            console.log(thumbUrl)
             var newImg = $("<img>")
             newImg.attr("class", "wikiThumb")
             newImg.attr("src", thumbUrl)
@@ -92,30 +77,28 @@ method: "GET"
 })
 
     var queryURL = "https://www.googleapis.com/youtube/v3/search?maxResults=10&videoEmbeddable=true&part=snippet&order=relevance&q=" + search + "&type=video&videoDefinition=any&key=AIzaSyCZ7G2n1C1pRK-4u4OOwsGN5xwqsxXaeTg"; //Re-enable
-    console.log(queryURL)
 $.ajax({
 url: queryURL,
 method: "GET"
 }).then(function(response) {
     $(".videos").empty()
-    console.log("Search: " + search)
-    console.log("RESPONSE:")
-    console.log(response)
     var div = $("<div>")
     div.attr("class", "videoGallery")
     for (var i = 0; i < response.items.length; i++) {
     var alink = $("<a>")
     var img = $("<img>")
+    var h = $("<p>")
+    h.attr("id", "videoTitle")
     img.attr("class", "vidThumbnail")
     var vidId = response.items[i].id.videoId;
+    // var vidTitle = response.items[i].snippet.title
+    // h.append(vidTitle)
     alink.attr("data-fancybox", "YTvideos")
     alink.attr("data-width", "640")
     alink.attr("data-height", "360")
     alink.attr("href", "https://www.youtube.com/watch?v="+vidId)
     var vidThumb = response.items[i].snippet.thumbnails.high.url
     img.attr("src", vidThumb)
-    console.log("vidId: " + vidId)
-    console.log("vidThumb :" + vidThumb)
     alink.append(img)
     div.append(alink)
 }
@@ -145,27 +128,20 @@ function getNews () {
             var imgT = $("<img>")
             div.attr("class", "newsArt clearfix")
             var title = "<h4>" + response.articles[i].title + "</h4>"
-            console.log(title)
             var url = response.articles[i].url
-            console.log(url)
             checkNull(url)
             var img = response.articles[i].urlToImage
-            console.log(img)
             checkNull(img)
             var newsSources = response.articles[i].source.name
-            console.log(newsSource)
             checkNull(newsSource)
             var newsSource = "<h5>" + newsSources + "</h5>"
             var pubDateRaw = moment(response.articles[i].publishedAt).startOf("hour").fromNow()
             var pubDate = "<p class='pubDate'>" + pubDateRaw + "</p>"
-            console.log(pubDate)
             checkNull(pubDate)
             var artDescs = response.articles[i].content
-            console.log(artDesc)
             checkNull(artDescs)
             var artDesc = "<p class='artDesc'>" + artDescs + "</p>"
             var authors = response.articles[i].author
-            console.log(authors)
             checkNull(authors)
             var author = "<p class='author'>" + authors + "</p>"
             imgT.attr("src", img)
@@ -190,14 +166,11 @@ function getHeadlines () {
         method: "GET"
     }).then(function(response) {
         $(".slidetext").empty()
-        console.log("Headlines: ")
-        console.log(response.articles[0])
     for (var i = 0; i < 9; i++) {
         var headlineTitle = response.articles[i].title
         checkNull(headlineTitle)
         var headline = ' "' + headlineTitle + '" '
         title.push(headline)
-        console.log(title)
     }
     var slidingTxt = title.toString();
         var slider = $("<div>")
