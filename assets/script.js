@@ -115,7 +115,7 @@ $("#prev").on("click", function() {
 })
 
 function getNews () {
-    var newsURL = "https://newsapi.org/v2/everything?q="+ search + "&from=2019-06-20&sortBy=publishedAt&apiKey=4bf59bd743a540a78774e25ee1328ab9"
+    var newsURL = "https://newsapi.org/v2/everything?q="+ search + "&language=en&from=2019-06-22&sortBy=publishedAt&apiKey=4bf59bd743a540a78774e25ee1328ab9"
     $.ajax({
         url: newsURL,
         method: "GET"
