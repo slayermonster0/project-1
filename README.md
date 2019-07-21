@@ -21,7 +21,7 @@
 
 <img width = 900 src = "https://github.com/slayermonster0/project-1/blob/richardTestBranch/assets/images/PREVIEW/content-1.jpg?raw=true">
 
-##### News articles are sorted by published date. You could even be the **first** to read them!
+##### News articles are sorted by published date. You might even be the **first** to read them!
 
 <img width = 900 src = "https://github.com/slayermonster0/project-1/blob/richardTestBranch/assets/images/PREVIEW/content-2.jpg?raw=true">
 
