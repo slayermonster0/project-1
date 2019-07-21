@@ -27,4 +27,4 @@
 
 ##### Videos will be opened using Modals and a gallery option will be available to view and navigate through all of the videos retreived!
 
-<img width = 900 src = "https://github.com/slayermonster0/project-1/blob/richardTestBranch/assets/images/PREVIEW/content-2.jpg?raw=true">
+<img width = 900 src = "https://github.com/slayermonster0/project-1/blob/richardTestBranch/assets/images/PREVIEW/videos.jpg?raw=true">
