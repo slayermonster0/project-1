@@ -5,7 +5,7 @@
 
 - Auto-suggestion in the search bar, which will display suggested keywords or topics based on past results.
 - Trending headlines (in the US) will be displayed at the top of the page.
-- A small summary of the keyword will be at the top. 
+- A small summary of the keyword will be at the top that can also expand into the full Wikipedia article (if available). 
 - Relevant videos will be followed for convenience.
 - A list of 10 news articles (to avoid hitting the daily limit) sorted by published date.
 
